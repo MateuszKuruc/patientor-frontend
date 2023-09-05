@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import patientService from "../services/patients";
 import { useEffect, useState } from "react";
 import { Patient } from "../types";
+import FemaleIcon from "@mui/icons-material/Female";
+import MaleIcon from "@mui/icons-material/Male";
 
 const PatientDetails = () => {
   const { id } = useParams();
@@ -25,7 +27,12 @@ const PatientDetails = () => {
   return (
     <div>
       {patient ? (
-        <h3>{patient.name}</h3>
+        <>
+          <h3>
+            {patient.name}
+            {patient.gender === "female" ? <FemaleIcon /> : <MaleIcon />}
+          </h3>
+        </>
       ) : (
         <p>Loading patient information...</p>
       )}
