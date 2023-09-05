@@ -32,6 +32,9 @@ const PatientDetails = () => {
             {patient.name}
             {patient.gender === "female" ? <FemaleIcon /> : <MaleIcon />}
           </h3>
+          <p>date of birth: {patient.dateOfBirth}</p>
+          <p>ssn: {patient.ssn}</p>
+          <p>occupation: {patient.occupation}</p>
         </>
       ) : (
         <p>Loading patient information...</p>
