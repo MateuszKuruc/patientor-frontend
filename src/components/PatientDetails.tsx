@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import patientService from "../services/patients";
+import diagnosesService from "../services/diagnoses";
 import { useEffect, useState } from "react";
 import { Patient, Diagnosis } from "../types";
 import FemaleIcon from "@mui/icons-material/Female";
@@ -8,7 +9,7 @@ import MaleIcon from "@mui/icons-material/Male";
 const PatientDetails = () => {
   const { id } = useParams();
   const [patient, setPatient] = useState<null | Patient>(null);
-  const [diagnoses, setDiagnoses] = useState<null | Diagnosis>(null);
+  const [diagnoses, setDiagnoses] = useState<null | Diagnosis[]>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +26,19 @@ const PatientDetails = () => {
     };
     fetchData();
   }, [id]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedDiagnoses = await diagnosesService.getAll();
+        console.log("fetched diagnoses", fetchedDiagnoses);
+        setDiagnoses(fetchedDiagnoses);
+      } catch (error) {
+        console.error("Error fetching diagnoses:", error);
+      }
+    };
+    fetchData();
+  }, [patient]);
 
   return (
     <div>
