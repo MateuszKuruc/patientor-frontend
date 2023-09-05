@@ -58,9 +58,21 @@ const PatientDetails = () => {
                 {p.date} {p.description}
               </p>
               <ul>
-                {p.diagnosisCodes?.map((d) => (
-                  <li key={d}>{d}</li>
-                ))}
+                {p.diagnosisCodes?.map((d) => {
+                  const diagnosis = diagnoses?.find(
+                    (diagnosis) => diagnosis.code === d
+                  );
+                  const diagnosisName =
+                    diagnosis?.name || "Diagnosis name not found";
+
+                  return (
+                    <li key={d}>
+                      <span>
+                        {d} {diagnosisName}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
