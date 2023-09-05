@@ -52,7 +52,8 @@ const PatientDetails = () => {
           <p>ssn: {patient.ssn}</p>
           <p>occupation: {patient.occupation}</p>
           <h3>entries</h3>
-          {patient.entries.map((p) => (
+          <EntryDetails />
+          {/* {patient.entries.map((p) => (
             <div key={p.id}>
               <p>
                 {p.date} {p.description}
@@ -75,7 +76,7 @@ const PatientDetails = () => {
                 })}
               </ul>
             </div>
-          ))}
+          ))} */}
         </>
       ) : (
         <p>Loading patient information...</p>
