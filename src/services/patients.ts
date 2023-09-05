@@ -14,8 +14,15 @@ const create = async (object: PatientFormValues) => {
   return data;
 };
 
+const getPatientDetails = async (id: string) => {
+  const { data } = await axios.get(`${apiBaseUrl}/patients/${id}`);
+  console.log("patient request", data);
+  return data;
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   getAll,
   create,
+  getPatientDetails,
 };
