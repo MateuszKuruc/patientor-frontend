@@ -24,7 +24,12 @@ const HealthcheckComponent: React.FC<{ entry: HealthCheckEntry }> = ({
   const iconColor = getIconColor();
 
   return (
-    <Box border={1} borderColor="primary.main" borderRadius={1}>
+    <Box
+      border={1}
+      borderColor="primary.main"
+      borderRadius={1}
+      marginBottom={2}
+    >
       <Paper style={{ padding: "16px" }}>
         <p>
           {entry.date} <HealthAndSafetyIcon />
@@ -35,6 +40,7 @@ const HealthcheckComponent: React.FC<{ entry: HealthCheckEntry }> = ({
         <p>
           <i>{entry.description}</i>
         </p>
+        <p>diagnosed by {entry.specialist}</p>
       </Paper>
     </Box>
   );
