@@ -1,11 +1,12 @@
-import { Entry } from "../../types";
+import { HospitalEntry } from "../../types";
 
-const HospitalEntry: React.FC<{ entry: Entry }> = ({ entry }) => {
+const HospitalEntryComponent: React.FC<{ entry: HospitalEntry }> = ({ entry }) => {
+  console.log("hospital entry", entry);
   return (
     <div>
-      {entry.date} {entry.description}
+      {entry.date} {entry.description} {entry.discharge.criteria}
     </div>
   );
 };
 
-export default HospitalEntry;
+export default HospitalEntryComponent;

@@ -1,11 +1,13 @@
-import { Entry } from "../../types";
+import { OccupationalHealthcareEntry } from "../../types";
 
-const OccupationalHealthcareEntry: React.FC<{ entry: Entry }> = ({ entry }) => {
+const OccupationalHealthcareComponent: React.FC<{
+  entry: OccupationalHealthcareEntry;
+}> = ({ entry }) => {
   return (
     <div>
-      {entry.date} {entry.description}
+      {entry.date} {entry.description} {entry.employerName}
     </div>
   );
 };
 
-export default OccupationalHealthcareEntry;
+export default OccupationalHealthcareComponent;

@@ -1,11 +1,23 @@
-import { Entry } from "../../types";
+import { HealthCheckEntry } from "../../types";
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
-const HealthcheckEntry: React.FC<{ entry: Entry }> = ({ entry }) => {
+const HealthcheckComponent: React.FC<{ entry: HealthCheckEntry }> = ({
+  entry,
+}) => {
+  //   const healtCheckRating = entry.healthCheckRating;
+  // const getIconColor = () => {
+  //     switch(entry.)
+  // }
   return (
     <div>
-      {entry.date} {entry.description}
+      <p>
+        {entry.date} <HealthAndSafetyIcon />
+      </p>
+
+      {entry.description}
     </div>
   );
 };
 
-export default HealthcheckEntry;
+export default HealthcheckComponent;
