@@ -54,33 +54,8 @@ const PatientDetails = () => {
           <p>occupation: {patient.occupation}</p>
           <h3>entries</h3>
           {patient.entries.map((entry) => (
-            <EntryDetails entry={entry} />
+            <EntryDetails key={entry.id} entry={entry} />
           ))}
-          {/* <EntryDetails /> */}
-          {/* {patient.entries.map((p) => (
-            <div key={p.id}>
-              <p>
-                {p.date} {p.description}
-              </p>
-              <ul>
-                {p.diagnosisCodes?.map((d) => {
-                  const diagnosis = diagnoses?.find(
-                    (diagnosis) => diagnosis.code === d
-                  );
-                  const diagnosisName =
-                    diagnosis?.name || "Diagnosis name not found";
-
-                  return (
-                    <li key={d}>
-                      <span>
-                        {d} {diagnosisName}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))} */}
         </>
       ) : (
         <p>Loading patient information...</p>
