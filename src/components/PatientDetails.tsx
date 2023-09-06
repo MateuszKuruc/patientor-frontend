@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Patient, Diagnosis } from "../types";
 import FemaleIcon from "@mui/icons-material/Female";
 import MaleIcon from "@mui/icons-material/Male";
+import EntryDetails from "./EntryDetails/EntryDetails";
 
 const PatientDetails = () => {
   const { id } = useParams();
@@ -52,7 +53,10 @@ const PatientDetails = () => {
           <p>ssn: {patient.ssn}</p>
           <p>occupation: {patient.occupation}</p>
           <h3>entries</h3>
-          <EntryDetails />
+          {patient.entries.map((entry) => (
+            <EntryDetails entry={entry} />
+          ))}
+          {/* <EntryDetails /> */}
           {/* {patient.entries.map((p) => (
             <div key={p.id}>
               <p>

@@ -1,4 +1,7 @@
 import { Entry } from "../../types";
+import HealthcheckEntry from "./HealtcheckEntry";
+import HospitalEntry from "./HospitalEntry";
+import OccupationalHealthcareEntry from "./OccupationalHealthcareEntry";
 
 const EntryDetails: React.FC<{ entry: Entry }> = ({ entry }) => {
   switch (entry.type) {
