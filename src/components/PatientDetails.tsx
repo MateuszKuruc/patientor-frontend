@@ -6,6 +6,7 @@ import { Patient, Diagnosis } from "../types";
 import FemaleIcon from "@mui/icons-material/Female";
 import MaleIcon from "@mui/icons-material/Male";
 import EntryDetails from "./EntryDetails/EntryDetails";
+import EntryCreator from "./EntryCreator";
 
 const PatientDetails = () => {
   const { id } = useParams();
@@ -52,6 +53,8 @@ const PatientDetails = () => {
           <p>date of birth: {patient.dateOfBirth}</p>
           <p>ssn: {patient.ssn}</p>
           <p>occupation: {patient.occupation}</p>
+          <EntryCreator />
+
           <h3>entries</h3>
           {patient.entries.map((entry) => (
             <EntryDetails key={entry.id} entry={entry} />
