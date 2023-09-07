@@ -17,7 +17,7 @@ export interface Patient {
   gender: Gender;
   ssn?: string;
   dateOfBirth?: string;
-  entries: Entry[];
+  entries?: Entry[];
 }
 
 export type PatientFormValues = Omit<Patient, "id" | "entries">;
@@ -44,7 +44,7 @@ export interface HealthCheckEntry extends BaseEntry {
 
 export interface HospitalEntry extends BaseEntry {
   type: "Hospital";
-  discharge: {
+  discharge?: {
     date: string;
     criteria: string;
   };
@@ -63,3 +63,9 @@ export type Entry =
   | HospitalEntry
   | OccupationalHealthcareEntry
   | HealthCheckEntry;
+
+type UnionOmit<T, K extends string | number | symbol> = T extends unknown
+  ? Omit<T, K>
+  : never;
+
+export type EntryFormValues = UnionOmit<Entry, "id">;
